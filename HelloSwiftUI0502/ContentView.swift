@@ -9,17 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var activeTab:Int = 0
+    @State var displayString = ""
     var body: some View {
-        TabView(selection: $activeTab) {
-            Text("in page \(activeTab)")
-                .tabItem {
-                    Image(systemName: "list.bullet")
-            }.tag(1)
-            Text("in page \(activeTab)")
-                .tabItem {
-                    Image(systemName: "list.bullet")
-            }.tag(2)
+        ZStack{
+            Color(red: 1, green: 0, blue: 0)
+            VStack{
+                HStack{
+                    Text("R:")
+                    Text("G:")
+                    Text("B:")
+                }
+                Spacer()
+                Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
+                Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
+                Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
+            }
         }
     }
 }
