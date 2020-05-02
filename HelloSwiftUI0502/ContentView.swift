@@ -9,11 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var activeTab:Int = 0
     var body: some View {
-        VStack{
-            Text("Hello, MyWorld")
-            Text(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/)
-            Text("Good View")
+        TabView(selection: $activeTab) {
+            Text("in page \(activeTab)")
+                .tabItem {
+                    Image(systemName: "list.bullet")
+            }.tag(1)
+            Text("in page \(activeTab)")
+                .tabItem {
+                    Image(systemName: "list.bullet")
+            }.tag(2)
         }
     }
 }
