@@ -10,23 +10,43 @@ import SwiftUI
 
 struct ContentView: View {
     @State var displayString = ""
+    
+    @State var r:CGFloat = 0.5
+    @State var g:CGFloat = 0.5
+    @State var b:CGFloat = 0.5
+    
+    
     var body: some View {
         ZStack{
-            Color(red: 1, green: 0, blue: 0)
+            Color(UIColor(red: r, green: g, blue: b, alpha: 1))
             VStack{
                 HStack{
-                    Text("R:")
-                    Text("G:")
-                    Text("B:")
+                    MyText(text: "R:", value: r)
+                    MyText(text: "G:", value: g)
+                    MyText(text: "B:", value: b)
                 }
                 Spacer()
-                Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
-                Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
-                Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
+                Slider(value: $r).padding(.horizontal, 15.0)
+                Slider(value: $g).padding(.horizontal, 15.0)
+                Slider(value: $b).padding([.leading, .bottom, .trailing], 15.0)
+
             }
         }
     }
 }
+
+
+struct MyText:View{
+    
+    var text:String
+    var value:CGFloat
+    
+    var body:some View{
+        Text(text + "\(Int(value*255))  ").font(.largeTitle)
+    }
+}
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
