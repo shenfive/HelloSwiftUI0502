@@ -12,6 +12,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             Text("Hello, MyWorld")
+            Text(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/)
             Text("Good View")
         }
     }
